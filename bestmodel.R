@@ -22,6 +22,7 @@ train <- fread('../input/train.csv',
 
 # set a table key to enable fast aggregations
 setkey(train, Producto_ID, Agencia_ID, Cliente_ID)
+ 
 
 #calculate the overall median
 median <- train[, median(Demanda_uni_equil)]
@@ -68,6 +69,7 @@ submit[is.na(Pred)]$Pred <- median
 
 # now relabel columns ready for creating submission
 setnames(submit,"Pred","Demanda_uni_equil")
+
 
 # Write out submission file.
 # Any results you write to the current directory are saved as output.
